@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squiggle API - OBS Score Display</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="container">
+        <h2 id="time">Connecting...</h2>
+        <div id="score">
+            <span id="home-score">Home: 0.0 (0)</span>
+            <span id="away-score">Away: 0.0 (0)</span>
+        </div>
+    </div>
+
+    <script>
+        // Connect to the Squiggle SSE API
+        const eventSource = new EventSource("https://api.squiggle.com.au/sse/test");
+
+        // DOM elements
+        const timeElement = document.getElementById("time");
+        const homeScoreElement = document.getElementById("home-score");
+        const awayScoreElement = document.getElementById("away-score");
+
+        // Handle 'score' events
+        eventSource.addEventListener("score", (event) => {
+            const data = JSON.parse(event.data);
+
+            // Update the time and scores
+            timeElement.innerText = `Time: ${data.timestr}`;
+            homeScoreElement.innerText = `Home: ${data.score.hgoals}.${data.score.hbehinds} (${data.score.hscore})`;
+            awayScoreElement.innerText = `Away: ${data.score.agoals}.${data.score.abehinds} (${data.score.ascore})`;
+        });
+
+        // Handle connection errors
+        eventSource.onerror = () => {
+            timeElement.innerText = "Error: Could not connect to API.";
+        };
+    </script>
+</body>
+</html>
