@@ -22,13 +22,13 @@ body {
 
 /* Team boxes (Left and Right) */
 .score-box {
-    flex: 1; /* Equal width for home and away boxes */
+    flex: 6; /* Equal width for home and away boxes */
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #4BA9E1; /* Light blue background */
-    font-size: 36px; /* Adjust for larger numbers */
-    padding: 20px;
+    font-size: 76px; /* Adjust for larger numbers */
+    padding: 40px;
 }
 
 /* Center Time Box */
