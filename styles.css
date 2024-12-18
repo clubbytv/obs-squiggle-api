@@ -1,35 +1,44 @@
-/* General Reset */
+/* General reset and container styling */
 body {
     margin: 0;
     padding: 0;
-    background-color: rgba(0, 0, 0, 0); /* Transparent background */
-    color: white; /* White text */
-    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full-screen height */
+    background-color: transparent;
+}
+
+#scoreboard {
+    display: flex;
+    flex-direction: row; /* Align items horizontally */
+    width: 100%;
+    max-width: 800px; /* Adjust to fit your image width */
     text-align: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: white;
 }
 
-/* Container for Score Display */
-#container {
+/* Team boxes (Left and Right) */
+.score-box {
+    flex: 1; /* Equal width for home and away boxes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4BA9E1; /* Light blue background */
+    font-size: 36px; /* Adjust for larger numbers */
     padding: 20px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
-    width: fit-content;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Neon green glow */
 }
 
-/* Time Display */
-#time {
-    font-size: 28px;
-    font-weight: bold;
-    color: #00ff00; /* Neon green */
-    text-shadow: 0 0 8px #00ff00;
-}
-
-}
-
-#score span {
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+/* Center Time Box */
+#time-box {
+    flex: 1; /* Equal width as other boxes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4BA9E1; /* Blue background */
+    font-size: 28px; /* Adjust font size */
+    color: white;
+    padding: 20px;
 }
